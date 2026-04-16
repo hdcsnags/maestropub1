@@ -1,0 +1,22 @@
+{
+  "name": "smtp-stub",
+  "priority": 100,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/smtp(?:/send)?"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "status": "accepted",
+      "provider": "wiremock-smtp-stub",
+      "messageId": "{{randomValue type='UUID'}}"
+    },
+    "transformers": [
+      "response-template"
+    ]
+  }
+}
